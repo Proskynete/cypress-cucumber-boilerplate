@@ -1,12 +1,16 @@
 import { defineConfig } from "cypress";
 import * as webpack from "@cypress/webpack-preprocessor";
 import { addCucumberPreprocessorPlugin } from "@badeball/cypress-cucumber-preprocessor";
+const dotenvPlugin = require("cypress-dotenv");
 
 async function setupNodeEvents(
   on: Cypress.PluginEvents,
   config: Cypress.PluginConfigOptions
 ) {
   await addCucumberPreprocessorPlugin(on, config);
+
+  const _config = dotenvPlugin(config);
+  _config.env = {};
 
   on(
     "file:preprocessor",
@@ -31,7 +35,7 @@ async function setupNodeEvents(
               use: [
                 {
                   loader: "@badeball/cypress-cucumber-preprocessor/webpack",
-                  options: config,
+                  options: _config,
                 },
               ],
             },
@@ -41,7 +45,7 @@ async function setupNodeEvents(
     })
   );
 
-  return config;
+  return _config;
 }
 
 module.exports = defineConfig({
