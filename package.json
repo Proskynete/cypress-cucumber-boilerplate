@@ -7,7 +7,7 @@
     "email": "soy@eduardoalvarez.dev",
     "url": "https://eduardoalvarez.dev"
   },
-  "license": "MIT",
+  "license": "GPL-3.0",
   "scripts": {
     "start:open": "cypress open",
     "start:report": "node ./generate-report-config.js",
