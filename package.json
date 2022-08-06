@@ -10,7 +10,9 @@
   "license": "MIT",
   "scripts": {
     "start:open": "cypress open",
-    "start": "cypress run"
+    "start": "cypress run",
+    "lint": "eslint --ext .ts .",
+    "lint:fix": "npm run lint -- --fix"
   },
   "keywords": [
     "e2e",
@@ -32,10 +34,18 @@
     "@cypress/webpack-preprocessor": "^5.12.0",
     "cypress": "^10.4.0",
     "cypress-dotenv": "^2.0.0",
+    "cypress-eslint-preprocessor": "^1.2.2",
     "dotenv": "^16.0.1"
   },
   "devDependencies": {
     "@types/testing-library__cypress": "^5.0.9",
+    "@typescript-eslint/eslint-plugin": "^5.32.0",
+    "@typescript-eslint/parser": "^5.32.0",
+    "eslint": "^8.21.0",
+    "eslint-config-airbnb-base": "^15.0.0",
+    "eslint-config-prettier": "^8.5.0",
+    "eslint-plugin-cypress": "^2.12.1",
+    "eslint-plugin-import": "^2.26.0",
     "ts-loader": "^9.3.1",
     "typescript": "^4.7.4"
   }

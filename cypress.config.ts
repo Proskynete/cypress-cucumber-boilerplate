@@ -1,7 +1,9 @@
 import { defineConfig } from "cypress";
 import * as webpack from "@cypress/webpack-preprocessor";
 import { addCucumberPreprocessorPlugin } from "@badeball/cypress-cucumber-preprocessor";
+
 const dotenvPlugin = require("cypress-dotenv");
+const cypressEslint = require("cypress-eslint-preprocessor");
 
 async function setupNodeEvents(
   on: Cypress.PluginEvents,
@@ -12,6 +14,7 @@ async function setupNodeEvents(
   const _config = dotenvPlugin(config);
   _config.env = {};
 
+  on("file:preprocessor", cypressEslint());
   on(
     "file:preprocessor",
     webpack({
