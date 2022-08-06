@@ -1,26 +1,25 @@
-import { defineConfig } from "cypress";
-import * as webpack from "@cypress/webpack-preprocessor";
-import { addCucumberPreprocessorPlugin } from "@badeball/cypress-cucumber-preprocessor";
+import { defineConfig } from 'cypress';
+import * as webpack from '@cypress/webpack-preprocessor';
+import { addCucumberPreprocessorPlugin } from '@badeball/cypress-cucumber-preprocessor';
 
-const dotenvPlugin = require("cypress-dotenv");
-const cypressEslint = require("cypress-eslint-preprocessor");
+const dotenvPlugin = require('cypress-dotenv');
+const cypressEslint = require('cypress-eslint-preprocessor');
 
-async function setupNodeEvents(
-  on: Cypress.PluginEvents,
-  config: Cypress.PluginConfigOptions
-) {
+async function setupNodeEvents(on: Cypress.PluginEvents, config: Cypress.PluginConfigOptions) {
   await addCucumberPreprocessorPlugin(on, config);
 
   const _config = dotenvPlugin(config);
-  _config.env = {};
+  _config.env = {
+    baseUrl: process.env.BASE_URL
+  };
 
-  on("file:preprocessor", cypressEslint());
+  on('file:preprocessor', cypressEslint());
   on(
-    "file:preprocessor",
+    'file:preprocessor',
     webpack({
       webpackOptions: {
         resolve: {
-          extensions: [".ts", ".js"],
+          extensions: ['.ts', '.js']
         },
         module: {
           rules: [
@@ -29,22 +28,22 @@ async function setupNodeEvents(
               exclude: [/node_modules/],
               use: [
                 {
-                  loader: "ts-loader",
-                },
-              ],
+                  loader: 'ts-loader'
+                }
+              ]
             },
             {
               test: /\.feature$/,
               use: [
                 {
-                  loader: "@badeball/cypress-cucumber-preprocessor/webpack",
-                  options: _config,
-                },
-              ],
-            },
-          ],
-        },
-      },
+                  loader: '@badeball/cypress-cucumber-preprocessor/webpack',
+                  options: _config
+                }
+              ]
+            }
+          ]
+        }
+      }
     })
   );
 
@@ -53,8 +52,8 @@ async function setupNodeEvents(
 
 module.exports = defineConfig({
   e2e: {
-    specPattern: "cypress/e2e/features/**/*.feature",
+    specPattern: 'cypress/e2e/features/**/*.feature',
     chromeWebSecurity: false,
-    setupNodeEvents,
-  },
+    setupNodeEvents
+  }
 });
