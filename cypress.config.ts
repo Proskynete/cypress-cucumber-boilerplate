@@ -1,10 +1,13 @@
 import { defineConfig } from "cypress";
 import * as webpack from "@cypress/webpack-preprocessor";
+import { addCucumberPreprocessorPlugin } from "@badeball/cypress-cucumber-preprocessor";
 
 async function setupNodeEvents(
   on: Cypress.PluginEvents,
   config: Cypress.PluginConfigOptions
 ) {
+  await addCucumberPreprocessorPlugin(on, config);
+
   on(
     "file:preprocessor",
     webpack({
@@ -20,6 +23,15 @@ async function setupNodeEvents(
               use: [
                 {
                   loader: "ts-loader",
+                },
+              ],
+            },
+            {
+              test: /\.feature$/,
+              use: [
+                {
+                  loader: "@badeball/cypress-cucumber-preprocessor/webpack",
+                  options: config,
                 },
               ],
             },
