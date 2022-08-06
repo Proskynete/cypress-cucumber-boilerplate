@@ -1,0 +1,32 @@
+{
+  "name": "cypress-cucumber-boilerplate",
+  "version": "1.0.0",
+  "description": "Cypress Cucumber Boilerplate using TS, Cucumber and Testing Library",
+  "author": {
+    "name": "Eduardo Esteban Álvarez Castañeda",
+    "email": "soy@eduardoalvarez.dev",
+    "url": "https://eduardoalvarez.dev"
+  },
+  "license": "MIT",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "e2e",
+    "cypress",
+    "cucumber",
+    "gherkins",
+    "bdd",
+    "boilerplate",
+    "automation",
+    "testing",
+    "testing-library",
+    "ESlint",
+    "prettier",
+    "html report",
+    "typescript"
+  ],
+  "devDependencies": {
+    "cypress": "^10.4.0"
+  }
+}
