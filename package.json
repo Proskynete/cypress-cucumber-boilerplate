@@ -9,7 +9,8 @@
   },
   "license": "MIT",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "start:open": "cypress open",
+    "start": "cypress run"
   },
   "keywords": [
     "e2e",
@@ -26,7 +27,7 @@
     "html report",
     "typescript"
   ],
-  "devDependencies": {
+  "dependencies": {
     "cypress": "^10.4.0"
   }
 }
