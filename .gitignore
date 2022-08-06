@@ -1,4 +1,9 @@
 node_modules/
+cypress/videos/
+cypress/screenshots/
+
+jsonlogs/
+reports/
 
 .DS_Store
 **/.DS_Store
