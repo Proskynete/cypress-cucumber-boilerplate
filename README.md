@@ -2,20 +2,10 @@
   <h3>Cypress Cucumber Boilerplate</h3>
 </div>
 
-<p align="center">
-  <a href="https://www.cypress.io/">
-    <img alt="Cypress" src="https://img.shields.io/badge/Made%20with-Cypress-blue.svg">
-  </a>
-  <a href="https://eduardoalvarez.dev">
-    <img alt="With love" src="https://img.shields.io/badge/Developed%20with-♡-red">
-  </a>
-  <a href="http://makeapullrequest.com">
-    <img alt="PRs Welcome" src="https://img.shields.io/badge/PRs-Welcome-lightgrey.svg">
-  </a>
-</p>
+<br />
+<br />
 
-<br />
-<br />
+<https://img.shields.io/coverallsCoverage/github/proskynete/node-api-skeleton>
 
 <details>
   <summary>Table of contents</summary>
@@ -28,8 +18,10 @@
     </li>
     <li>
       <a href="#how-to-use">How to use</a>
+    </li>
     <li>
       <a href="#folder-structure">Folder Structure</a>
+    </li>
   </ol>
 </details>
 
