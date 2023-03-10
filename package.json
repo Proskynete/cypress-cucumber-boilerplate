@@ -10,7 +10,8 @@
   "license": "GPL-3.0",
   "scripts": {
     "start:open": "cypress open",
-    "start:report": "node ./generate-report-config.js",
+    "start:create-json": "cat jsonlogs/messages.ndjson | cucumber-json-formatter > cucumber-report.json",
+    "start:report": "npm run start:create-json && node ./generate-report-config.js",
     "start": "cypress run",
     "poststart": "npm run start:report",
     "lint": "eslint --ext .ts .",

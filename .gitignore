@@ -10,3 +10,5 @@ reports/
 
 .env*
 !.env.template
+
+cucumber-report.json
